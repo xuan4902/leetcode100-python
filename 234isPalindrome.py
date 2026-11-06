@@ -36,6 +36,7 @@ class Solution(object):
 
         # slow是后端的起点，反转后半段
         second = reverse(slow)
+        #这里必须是second，因为如果是fast，在奇数的时候是空
         p1,p2 = head ,second
         res = True
         while res and p2:#`p2` 这个条件本质是**保护，防止取 None.val**。链表节点为空的时候，不能访问 `.val` 属性。
