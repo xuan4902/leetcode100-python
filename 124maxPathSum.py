@@ -13,7 +13,7 @@ class Solution(object):
         self.res = float('-inf')#全局最大值
 
         def dfs(node):
-            if not root:
+            if not node:
                 return 0
             #有可能负，所有负的不要，与0
             left = max(dfs(node.left),0)
@@ -28,14 +28,16 @@ class Solution(object):
         
         dfs(root)
         return self.res
+
+    
         #返回最大长度
         #最大值用max在倒数第二
         
-        root_max = 0
-        cur_len = 0
-        left = self.maxPathSum(root.left)
-        right = self.maxPathSum(root.right)
-        cur_len = left + right
-        root_max = max(root_max,cur_len)
-        return max(left,right)
+        # root_max = 0
+        # cur_len = 0
+        # left = self.maxPathSum(root.left)
+        # right = self.maxPathSum(root.right)
+        # cur_len = left + right
+        # root_max = max(root_max,cur_len)
+        # return max(left,right)
         
