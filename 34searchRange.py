@@ -6,7 +6,7 @@ class Solution(object):
         :rtype: int
         """
         n = len(nums)
-        # 第一步：找最小值下标 pivot（旋转分界点）
+        # 第一步：找最小值下标 pivot（旋转分界点，闭区间 [l,r]）
         def find_pivot(l, r):
             if l == r:
                 return l
@@ -29,13 +29,17 @@ class Solution(object):
             else:
                 return binary_search(l, mid - 1)
         
-        # 分区搜索
+        # 分区搜索，修复pivot=0（没有旋转）的情况
+        if pivot == 0:
+            # 数组完全有序，直接全局二分
+            return binary_search(0, n-1)
         if target >= nums[0]:
             # 在左边高区 [0, pivot-1]
             return binary_search(0, pivot - 1)
         else:
             # 在右边低区 [pivot, n-1]
             return binary_search(pivot, n - 1)
+
 
 #错误错误错误错误错误错误错误错误错误错误错误错误错误错误错误错误错误错误错误错误错误错误错误错误错误错误错误错误
 class Solution(object):
